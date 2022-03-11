@@ -1,0 +1,33 @@
+1
+select e.EmpID,e.EmpFname,e.EmpLname,p.ProjectID,p.ProjectName
+from Employee as e 
+inner join Project as p
+on e.EmpID=p.EmpID;
+2
+select e.EmpID,e.EmailID,e.PhoneNo,c.ClientFname,ClientLname
+from Employee as e inner join Client_d as c
+on e.EmpID=c.EmpID
+WHERE e.city='Delhi'OR c.City='Kolkata';
+3
+select p.ProjectName,c.ClientEmailID
+from Project as p inner join Client_d as c
+on p.ClientID= c.ClientID
+where p.ProjectStartDate>'2021-04-30' 
+order by c.Age desc;
+4
+select e.EmpFname,e.EmpLname,p.ProjectID,p.ProjectName
+from Employee as e left join Project as p
+on e.EmpID=p.EmpID;
+5
+select p.ProjectID,p.ProjectName,e.EmpFname,e.EmpLname,e.EmailID
+from Employee as e right join Project as p 
+on e.EmpID=p.EmpID;
+6
+select c.ClientID,c.ClientFname,c.ClientLname,c.ClientEmailID,p.ProjectID,p.ProjectName
+from Project as p Right join Client_d as c
+on p.ClientID=c.ClientID
+where c.Age between 25 and 35 
+order by c.Age,p.ProjectID asc;
+7
+select e.EmpFname,e.EmpLname,p.ProjectID
+from Employee as e cross join Project as p;

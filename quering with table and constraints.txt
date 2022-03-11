@@ -1,0 +1,173 @@
+1
+create table People(
+PID INT PRIMARY KEY ,
+LastName varchar(255),
+FirstName varchar(255),    
+Address varchar(255), 
+City varchar(255)
+);
+
+SELECT
+table_name,
+column_name,
+data_type
+FROM
+information_schema.columns
+WHERE
+table_name = 'People'
+    ORDER BY
+    column_name ;
+2
+create table Patients(
+Patient_id INT PRIMARY KEY,
+Patient_title char(50),
+Patient_name char(50) NOT NULL,
+admit_date DATE    
+);
+SELECT
+table_name,
+column_name,
+data_type
+FROM
+information_schema.columns
+WHERE
+table_name = 'Patients'
+    ORDER BY
+    column_name ;
+3
+create table customer (
+ID INT NOT NULL AUTO_INCREMENT,
+Name varchar(50) NOT NULL,
+City varchar(50) NOT NULL ,
+PRIMARY KEY (ID)
+);
+
+DESC customer;
+
+create table contacts(
+ID INT,
+Customer_id INT,
+Customer_info varchar(50) NOT NULL,
+Type VARCHAR(50) NOT NULL,  
+FOREIGN KEY (Customer_id) REFERENCES customer(ID)   
+);
+DESC contacts;
+4
+create table users(
+id int PRIMARY KEY,
+full_name VARCHAR(255),
+enabled CHAR(50),
+last_login DATE
+);
+SELECT
+table_name,
+column_name,
+data_type
+FROM
+information_schema.columns
+WHERE
+table_name = 'users'; 
+
+
+create table addresses(
+user_id int PRIMARY KEY,
+street VARCHAR(255) NOT NULL,
+city VARCHAR(255) NOT NULL,
+state VARCHAR(255) NOT NULL,
+FOREIGN KEY(user_id) REFERENCES users(id)
+);
+SELECT
+table_name,
+column_name,
+data_type
+FROM
+information_schema.columns
+WHERE
+table_name = 'addresses'; 
+5
+CREATE TABLE books (
+  id int,
+  title varchar(100) NOT NULL,
+  author varchar(100) NOT NULL,
+  published_date timestamp NOT NULL,
+  isbn char(12),
+  PRIMARY KEY (id),
+  UNIQUE (isbn)
+);
+
+SELECT
+   	table_name,
+   	column_name,
+   	data_type
+	FROM
+   	information_schema.columns
+	WHERE
+   	table_name = 'books';
+    
+ CREATE TABLE reviews (
+  id int,
+  book_id integer NOT NULL,
+  reviewer_name varchar(255),
+  content varchar(255),
+  rating integer,
+  published_date timestamp,
+  PRIMARY KEY (id),
+  FOREIGN KEY (book_id)
+      REFERENCES books(id)
+);
+
+SELECT
+   	table_name,
+   	column_name,
+   	data_type
+	FROM
+   	information_schema.columns
+	WHERE
+   	table_name = 'reviews';   
+6.
+ALTER TABLE members
+ADD credit_card_number VARCHAR(255);
+SELECT
+table_name,
+column_name,
+data_type
+FROM
+information_schema.columns
+WHERE
+table_name = 'members'
+    ORDER BY
+    column_name ; 
+7.
+ALTER TABLE Bank
+CHANGE COLUMN person_id Pid VARCHAR(50);
+DESC Bank;
+8.
+ALTER TABLE members 
+DROP COLUMN member_dob;
+SELECT
+   table_name,
+   column_name,
+   data_type
+FROM
+   information_schema.columns
+WHERE
+   table_name = 'members'
+ORDER BY
+   column_name ; 
+9.
+ALTER TABLE consumers 
+RENAME TO Consumer_Data;
+SELECT
+   table_name,
+   column_name,
+   data_type
+FROM
+   information_schema.columns
+WHERE
+   table_name = 'Consumer_Data'
+ORDER BY
+   column_name; 
+10.
+TRUNCATE TABLE consumers;
+ DESC consumers;
+

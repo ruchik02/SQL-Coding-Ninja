@@ -1,0 +1,24 @@
+1
+INSERT INTO tutorials (tutorial_title,tutorial_author,submission_date)
+VALUES('Learn MySQL','Balachandra Raju','01-09-2021');
+select * from tutorials;
+2
+INSERT INTO Students(Roll_no,std_name,Age)
+VALUES(7,'Shantnu',21);
+SELECT * FROM Students;
+3
+UPDATE stud_data
+set Fname='Neelabh',
+Age=22
+where roll_no=17;
+select * from stud_data;
+4
+DELETE FROM products
+WHERE product_id=596 OR product_id=700;
+SELECT * FROM products;
+5
+REPLACE INTO cities
+SET id=4,
+cname='Phoenix',
+population=1768980;
+select * from cities;
